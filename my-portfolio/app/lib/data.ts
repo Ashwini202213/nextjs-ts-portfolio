@@ -23,6 +23,6 @@ export const projects: Project[] = [
     description:
       "Reusable UI components following clean and scalable patterns.",
     tech: ["React", "TypeScript"],
-    liveUrl: "https://example.com",
+    
   },
 ];
