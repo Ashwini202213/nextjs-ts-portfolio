@@ -1,3 +1,8 @@
+import type { Metadata } from "next";
+export const metadata:Metadata={
+title:"About Me",
+description:"Learn more about my journey as a frontend developer"
+}
 export default function AboutPage() {
   return (
     <main className="p-6">
