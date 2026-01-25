@@ -1,30 +1,22 @@
-import AnimatedSection from "@/components/AnimatedSection";
+import FadeIn from "@/components/animations/FadeIn";
+import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/lib/data";
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "A showcase of my projects built with Next.js and TypeScript",
+};
 
 export default function ProjectsPage() {
   return (
-    <main className="p-6">
-      <AnimatedSection>
-      <h1 className="text-3xl font-bold">Projects</h1>
-      </AnimatedSection>
-
-      <div className="mt-6 grid ">
-       {projects.map((project)=>(
-        <AnimatedSection key={project.id}>
-          <div className="m-2 p-4 rounded border hover:shadow transition">
-          <h2 className="text-2xl font-semibold">{project.title}</h2>
-          <p className="mt-2">{project.description}</p>
-          <p className="mt-2 font-mono text-sm">Tech Stack: {project.tech.join(", ")}</p>
-          {project.liveUrl && (
-            <a href={project.liveUrl} className="mt-2 text-blue-500 underline" target="_blank" rel="noopener noreferrer">
-              Live Demo
-            </a>
-          
-          )
-          }
-         </div>
-        </AnimatedSection>
-       ))}
+    <main className="p-6 m-8">
+      <h1 className="text-3xl font-bold mb-6 flex justify-center p-4">My Projects</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, index) => (
+          <FadeIn key={project.id} delay={index * 0.1}>
+            <ProjectCard project={project} />
+          </FadeIn>
+        ))}
       </div>
     </main>
   );
